@@ -23,7 +23,7 @@ button {
 body {
 	font: 14px 'Helvetica Neue', Helvetica, Arial, sans-serif;
 	line-height: 1.4em;
-	background: #eaeaea url('images/bg.png');
+	background: #eaeaea url('../images/bg.png');
 	color: #4d4d4d;
 	width: 550px;
 	margin: 0 auto;
@@ -276,11 +276,11 @@ label[for='toggle-all'] {
 #todo-list li .destroy:hover {
 	text-shadow: 0 0 1px #000,
 				 0 0 10px rgba(199, 107, 107, 0.8);
-	-webkit-transform: scale(1.3);
-	-moz-transform: scale(1.3);
-	-ms-transform: scale(1.3);
-	-o-transform: scale(1.3);
-	transform: scale(1.3);
+	-webkit-transform: scale(1.2);
+	-moz-transform: scale(1.2);
+	-ms-transform: scale(1.2);
+	-o-transform: scale(1.2);
+	transform: scale(1.2);
 }
 
 #todo-list li .destroy:after {
@@ -411,4 +411,327 @@ label[for='toggle-all'] {
 
 .hidden{
 	display:none;
+}
+
+
+/********************/
+/* Test screen size */
+/********************/
+
+#divPhonePortrait, #divPhoneLandscape, #divSmallTabletPortrait, #divSmallTabletLandscape, #divTabletPortrait, #divTabletLandscape, #divDesktop, #divLargeDesktop { 
+	width:1px;
+	height:1px;
+}
+
+#divScreenSize {
+	width:100%;
+	height:100px;
+	background-color:#fff;
+	border:5px solid grey;
+	line-height: 50px; /* 40 + a couple of pixels visual adjustment */
+	font-size: 2em;
+	color: #242424;
+}
+
+#divScreenSize:before {
+	content: 'screen size';
+}
+
+/*********************************************************/
+/* Portrait Phones and down */
+/*@media (max-width: 480px) {*/
+@media only screen and (max-width : 568px) and (orientation : portrait) {
+	#divScreenSize {
+		background-color:blue;
+	}
+
+	#divScreenSize:before {
+		content: 'portrait phone';
+	}
+
+	#divPhonePortrait { display:block; }
+	#divPhoneLandscape, #divSmallTabletPortrait, #divSmallTabletLandscape, #divTabletPortrait, #divTabletLandscape, #divDesktop, #divLargeDesktop { display:none; }
+}
+
+/* Landscape phones and down */
+/*@media (max-width: 767px) { */
+@media only screen and (max-width : 640px) and (orientation : landscape) {
+	#divScreenSize {
+		background-color:blue;
+	}
+
+	#divScreenSize:before {
+		content: 'landscape phone';
+	}
+
+	#divPhoneLandscape { display:block; }
+	#divPhonePortrait, #divSmallTabletPortrait, #divSmallTabletLandscape, #divTabletPortrait, #divTabletLandscape, #divDesktop, #divLargeDesktop { display:none; }
+}
+
+/* Small Tablet portrait */
+@media only screen and (min-width : 569px) and (max-width : 767px) and (orientation : portrait) {
+	#divScreenSize {
+		background-color:green;
+	}
+
+	#divScreenSize:before {
+		content: 'small tablet portrait';
+	}
+
+	#divSmallTabletPortrait { display:block; }
+	#divPhonePortrait, #divPhoneLandscape, #divSmallTabletLandscape, #divTabletPortrait, #divTabletLandscape, #divDesktop, #divLargeDesktop { display:none; }
+}
+
+/* Small Tablet Landscape */
+@media only screen and (min-width : 641px) and (max-width : 966px) and (orientation : landscape) {
+	#divScreenSize {
+		background-color:green;
+	}
+
+	#divScreenSize:before {
+		content: 'small tablet landscape';
+	}
+
+	#divSmallTabletLandscape { display:block; }
+	#divPhonePortrait, #divPhoneLandscape, #divSmallTabletPortrait, #divTabletPortrait, #divTabletLandscape, #divDesktop, #divLargeDesktop { display:none; }
+}
+
+/* Tablet portrait */
+@media only screen and (min-width : 768px) and (max-width : 1024px) and (orientation : portrait) {
+	#divScreenSize {
+		background-color:yellow;
+	}
+
+	#divScreenSize:before {
+		content: 'tablet portrait';
+	}
+
+	#divTabletPortrait { display:block; }
+	#divPhonePortrait, #divPhoneLandscape, #divSmallTabletPortrait, #divSmallTabletLandscape, #divTabletLandscape, #divDesktop, #divLargeDesktop { display:none; }
+}
+
+/* Tablet Landscape */
+@media only screen and (min-width : 967px) and (max-width : 1280px) and (orientation : landscape) {
+	#divScreenSize {
+		background-color:yellow;
+	}
+
+	#divScreenSize:before {
+		content: 'tablet landscape';
+	}
+
+	#divTabletLandscape { display:block; }
+	#divPhonePortrait, #divPhoneLandscape, #divSmallTabletPortrait, #divSmallTabletLandscape, #divTabletPortrait, #divDesktop, #divLargeDesktop { display:none; }
+}
+
+/* Normal desktop */
+@media only screen and (min-width : 1281px) {
+	#divScreenSize {
+		background-color:orange;
+	}
+
+	#divScreenSize:before {
+		content: 'desktop';
+	}
+
+	#divDesktop { display:block; }
+	#divPhonePortrait, #divPhoneLandscape, #divSmallTabletPortrait, #divSmallTabletLandscape, #divTabletPortrait, #divTabletLandscape, #divLargeDesktop { display:none; }
+}
+
+/* Large desktop */
+@media only screen and (min-width : 1440px) {
+	#divScreenSize {
+		background-color:red;
+	}
+
+	#divScreenSize:before {
+		content: 'large desktop';
+	}
+
+	#divLargeDesktop { display:block; }
+	#divPhonePortrait, #divPhoneLandscape, #divSmallTabletPortrait, #divSmallTabletLandscape, #divTabletPortrait, #divTabletLandscape, #divDesktop { display:none; }
+}
+
+/*******************************/
+/* Device Width Breakpoints */
+/*******************************/
+#divDevice {
+	width:100%;
+	height:100px;
+	background-color:#fff;
+	border:5px solid grey;
+	line-height: 43px; /* 40 + a couple of pixels visual adjustment */
+	font-size: 20px;
+	color: #242424;
+	display:none;
+}
+
+@media only screen and (max-device-width : 568px) and (orientation : portrait) {
+  #divDevice:before {
+    content: 'bp1.1 portrait phone';
+  }
+}
+@media only screen and (max-device-width : 568px) and (orientation : landscape) {
+  #divDevice:before {
+    content: 'bp1.2 landscape phone';
+  }
+}
+
+@media only screen and (min-device-width : 569px) and (max-device-width : 767px) and (orientation : portrait) {
+	#divDevice:before {
+    content: 'bp2.1 small tablet portrait';
+  }
+}
+@media only screen and (min-device-width : 569px) and (max-device-width : 767px) and (orientation : landscape) {
+	#divDevice:before {
+    content: 'bp2.2 small tablet landscape';
+  }
+}
+
+@media only screen and (min-device-width: 768px) and (max-device-width : 1024px) and (orientation : portrait) {
+	#divDevice:before {
+    content: 'bp3.1 portrait tablet'; 
+  }
+}
+@media only screen and (min-device-width: 768px) and (max-device-width : 1024px) and (orientation : landscape) {
+	#divDevice:before {
+    content: 'bp3.2 landscape tablet'; 
+  }
+}
+
+@media only screen and (min-device-width: 1025px) {
+  #divDevice:before {
+    content: 'bp4 desktop';
+  }
+}
+@media only screen and (min-device-width: 1366px) {
+  #divDevice:before {
+    content: 'bp5 large desktop';
+  }
+}
+
+/******************************************************************/
+
+/***************/
+/* Test iPhone */
+/***************/
+#diviPhone {
+	width:300px;
+	height:200px;
+	background-color:#fff;
+	border:5px solid black;
+	line-height: 43px; /* 40 + a couple of pixels visual adjustment */
+	font-size: 20px;
+	color: #000;
+	display:none;
+}
+
+/*iPad in portrait & landscape
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) {
+	#diviPhone:before {
+		content: 'iPad in portrait & landscape';
+	}
+}
+*/
+
+/* iPad Landscape */
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape) {
+	#diviPhone:before {
+		content: 'iPad Landscape';
+	}
+}
+
+/* iPad in portrait */
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : portrait) {
+	#diviPhone:before {
+		content: 'iPad in portrait';
+	}
+}
+
+/* iPad 1 & 2 and iPad Mini in portrait & landscape 
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (-webkit-min-device-pixel-ratio: 1) {
+	#diviPhone:before {
+		content: 'iPad 1 & 2 and iPad Mini in portrait & landscape';
+	}
+}
+*/
+
+/* iPad 1 & 2 and iPad Mini in landscape */
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape) and (-webkit-min-device-pixel-ratio: 1) {
+	#diviPhone:before {
+		content: 'iPad 1 & 2 and iPad Mini in landscape';
+	}
+}
+
+/* iPad 1 & 2 and iPad Mini in portrait */
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : portrait) and (-webkit-min-device-pixel-ratio: 1) {
+	#diviPhone:before {
+		content: 'iPad 1 & 2 and iPad Mini in portrait';
+	}
+}
+
+/* Retina iPad in portrait & landscape
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (-webkit-min-device-pixel-ratio: 2) {
+	#diviPhone:before {
+		content: 'Retina iPad in portrait & landscape';
+	}
+}
+*/
+
+/* Retina iPad in landscape */
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape) and (-webkit-min-device-pixel-ratio: 2) {
+	#diviPhone:before {
+		content: 'Retina iPad in landscape';
+	}
+}
+
+/* Retina iPad in portrait */
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : portrait) and (-webkit-min-device-pixel-ratio: 2) {
+	#diviPhone:before {
+		content: 'Retina iPad in portrait';
+	}
+}
+
+/* iPhone 5 in portrait & landscape
+@media only screen and (min-device-width : 320px) and (max-device-width : 568px) {
+	#diviPhone:before {
+		content: 'iPhone 5 in portrait & landscape';
+	}
+}
+*/
+
+/* iPhone 5 in landscape */
+@media only screen and (min-device-width : 320px) and (max-device-width : 568px) and (orientation : landscape) {
+	#diviPhone:before {
+		content: 'iPhone 5 in landscape';
+	}
+}
+
+/* iPhone 5 in portrait */
+@media only screen and (min-device-width : 320px) and (max-device-width : 568px) and (orientation : portrait) {
+	#diviPhone:before {
+		content: 'iPhone 5 in portrait';
+	}
+}
+
+/* iPhone 2G-4S in portrait & landscape
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+	#diviPhone:before {
+		content: 'iPhone 2G-4S in portrait & landscape';
+	}
+}
+*/
+
+/* iPhone 2G-4S in landscape */
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px) and (orientation : landscape) {
+	#diviPhone:before {
+		content: 'iPhone 2G-4S in landscape';
+	}
+}
+
+/* iPhone 2G-4S in portrait */
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px) and (orientation : portrait) {
+	#diviPhone:before {
+		content: 'iPhone 2G-4S in portrait';
+	}
 }
